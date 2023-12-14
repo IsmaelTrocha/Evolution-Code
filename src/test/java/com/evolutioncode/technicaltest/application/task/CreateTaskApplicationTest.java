@@ -1,7 +1,7 @@
 package com.evolutioncode.technicaltest.application.task;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import com.evolutioncode.technicaltest.domain.entity.Task;
@@ -28,16 +28,13 @@ public class CreateTaskApplicationTest {
 
   @Test
   public void testCreateTaskWhenTaskIsCreatedThenReturnTask() {
-    // Arrange
-    Task task = new Task(1L, "Task 1", "Description 1", LocalDateTime.now(), null, null, true,
-        false);
-    when(createTaskService.createTask(task)).thenReturn(task);
-
-    // Act
-    Task result = createTaskApplication.createTask(task);
-
-    // Assert
-    assertEquals(task, result);
+    Task expected = new Task(1L, "Brush my teeth",
+        "I have to brush my teeth every morning when i get up.", LocalDateTime.now(),
+        LocalDateTime.now(), LocalDateTime.now(),
+        true, true);
+    when(createTaskService.createTask(any(Task.class))).thenReturn(expected);
+    Task actual = createTaskService.createTask(expected);
+    assertEquals(expected, actual);
   }
 
 }

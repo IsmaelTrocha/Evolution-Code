@@ -1,10 +1,10 @@
-# Nombre del Proyecto
+# Project Name
 
-Bienvenido este apartado es documentación de la API desarrollada con tecnologías de back-end Spring y Java. Esta API sigue la arquitectura hexagonal y ha sido desarrollada siguiendo prácticas de Desarrollo Dirigido por Pruebas (TDD), haciendo uso de patrones como DTO (Data Transfer Object) y empleando el patrón de diseño Builder.
+Welcome this section is documentation of the API developed with Spring and Java back-end technologies. This API follows the hexagonal architecture and has been developed following Test Driven Development (TDD) practices, making use of patterns such as DTO (Data Transfer Object) and employing the Builder design pattern.
 
-## Resumen del Proyecto
+## Project Summary
 
-El proyecto utiliza Spring Boot para el desarrollo del back-end y Java como lenguaje principal. La arquitectura hexagonal, también conocida como arquitectura de puertos y adaptadores, se ha seguido para facilitar la separación de preocupaciones y promover un código limpio y mantenible.
+The project uses Spring Boot for back-end development and Java as the main language. Hexagonal architecture, also known as port and adapter architecture, has been followed to facilitate separation of concerns and promote clean and maintainable code.
 
 ## Tecnologías Utilizadas
 
@@ -23,11 +23,11 @@ El proyecto utiliza Spring Boot para el desarrollo del back-end y Java como leng
   Utilizados para realizar pruebas unitarias y seguir la metodología TDD.
 </details>
 
-## Estructura del Proyecto
+## Project Structure
 
-La estructura del proyecto sigue la arquitectura hexagonal, dividiendo las responsabilidades en capas:
+The project structure follows the hexagonal architecture, dividing responsibilities into layers:
 
-- **Dominio:** Contiene la lógica de negocio y las entidades del dominio.
-- **Aplicación:** Implementa casos de uso y orquesta la lógica de negocio.
-- **Adaptadores:** Contiene adaptadores para la interfaz de usuario, bases de datos y otros servicios externos.
+- **Domain:** Contains the business logic and domain entities.
+- Application: **Implements use cases and orchestrates the business logic.
+- Adapters:** Contains adapters for the user interface, databases and other external services.
 

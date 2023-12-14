@@ -1,6 +1,6 @@
 # Nombre del Proyecto
 
-Bienvenido a la documentación de la API desarrollada con tecnologías de back-end Spring y Java. Esta API sigue la arquitectura hexagonal y ha sido desarrollada siguiendo prácticas de Desarrollo Dirigido por Pruebas (TDD), haciendo uso de patrones como DTO (Data Transfer Object) y empleando el patrón de diseño Builder.
+Bienvenido este apartado es documentación de la API desarrollada con tecnologías de back-end Spring y Java. Esta API sigue la arquitectura hexagonal y ha sido desarrollada siguiendo prácticas de Desarrollo Dirigido por Pruebas (TDD), haciendo uso de patrones como DTO (Data Transfer Object) y empleando el patrón de diseño Builder.
 
 ## Resumen del Proyecto
 

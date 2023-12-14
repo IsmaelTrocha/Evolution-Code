@@ -8,10 +8,13 @@ import com.evolutioncode.technicaltest.application.task.GetTaskApplication;
 import com.evolutioncode.technicaltest.application.task.TaskDeleteApplication;
 import com.evolutioncode.technicaltest.application.task.UpdateTaskApplication;
 import com.evolutioncode.technicaltest.domain.entity.Task;
+import com.evolutioncode.technicaltest.infrastructure.api.dto.request.TaskRequest;
 import com.evolutioncode.technicaltest.infrastructure.api.mapper.request.TaskRequestMapper;
 import com.evolutioncode.technicaltest.infrastructure.api.mapper.request.TaskUpdateRequestMapper;
 import com.evolutioncode.technicaltest.infrastructure.api.mapper.response.TaskResponseMapper;
 import com.evolutioncode.technicaltest.shared.utils.MessageUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -62,7 +65,7 @@ public class TaskControllerTest {
   }
 
   @Test
-  void getTaskById() throws Exception {
+  void getTaskByIdTest() throws Exception {
     Long id = 1L;
     Task task = buildTask();
     Mockito.when(getTaskApplication.findTaskById(id)).thenReturn(task);
@@ -80,10 +83,39 @@ public class TaskControllerTest {
     Mockito.verify(taskResponseMapper, Mockito.times(1)).toDto(task);
   }
 
-  private Task buildTask() {
-    return new Task(1L, "Brush my teeth",
-        "I have to brush my teeth every morning when i get up.", LocalDateTime.now(),
-        LocalDateTime.now(), LocalDateTime.now(),
-        true, true);
+  @Test
+  void createTaskTest() throws Exception {
+    String createRequest = buildRequest();
+    createTaskApplication.createTask(buildTask());
+
+    RequestBuilder requestBuilder = MockMvcRequestBuilders
+        .post("/task")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(createRequest);
+
+    MvcResult result = mockMvc.perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isCreated())
+        .andReturn();
+
+    assertNotNull(result);
+    assertEquals(HttpStatus.CREATED.value(), result.getResponse().getStatus());
+    Mockito.verify(createTaskApplication, Mockito.times(1)).createTask(buildTask());
   }
+
+  private String buildRequest() throws JsonProcessingException {
+    TaskRequest taskRequest = new TaskRequest();
+    ObjectMapper objectMapper = new ObjectMapper();
+
+    taskRequest.setName("Brush my teeth");
+    taskRequest.setDescription("I have to brush my teeth every morning when i get up.");
+
+    return objectMapper.writeValueAsString(taskRequest);
+  }
+
+
+  private Task buildTask() {
+    Task task = new Task();
+    task.setName("Brush my teeth");
+    task.setDescription("I have to brush my teeth every morning when i get up.");
+    return task;}
 }

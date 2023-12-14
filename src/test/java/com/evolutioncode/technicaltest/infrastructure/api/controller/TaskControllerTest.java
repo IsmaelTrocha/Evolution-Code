@@ -9,13 +9,13 @@ import com.evolutioncode.technicaltest.application.task.TaskDeleteApplication;
 import com.evolutioncode.technicaltest.application.task.UpdateTaskApplication;
 import com.evolutioncode.technicaltest.domain.entity.Task;
 import com.evolutioncode.technicaltest.infrastructure.api.dto.request.TaskRequest;
+import com.evolutioncode.technicaltest.infrastructure.api.dto.request.TaskUpdateRequest;
 import com.evolutioncode.technicaltest.infrastructure.api.mapper.request.TaskRequestMapper;
 import com.evolutioncode.technicaltest.infrastructure.api.mapper.request.TaskUpdateRequestMapper;
 import com.evolutioncode.technicaltest.infrastructure.api.mapper.response.TaskResponseMapper;
 import com.evolutioncode.technicaltest.shared.utils.MessageUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.time.LocalDateTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -100,6 +100,43 @@ public class TaskControllerTest {
     assertNotNull(result);
     assertEquals(HttpStatus.CREATED.value(), result.getResponse().getStatus());
     Mockito.verify(createTaskApplication, Mockito.times(1)).createTask(buildTask());
+  }
+
+  @Test
+  void updateTaskTest() throws Exception {
+    String updateTaskRequest = buildRequest();
+
+    updateTaskApplication.updateTask(updateBuild());
+
+    RequestBuilder requestBuilder = MockMvcRequestBuilders
+        .put("/task/")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(updateBuildRequest());
+
+    MvcResult result = mockMvc.perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andReturn();
+
+    assertNotNull(result);
+    assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
+    Mockito.verify(updateTaskApplication, Mockito.times(1)).updateTask(updateBuild());
+  }
+
+  private Task updateBuild() {
+    Task task = new Task();
+    task.setId(1L);
+    task.setDescription("test description");
+    task.setName("test name");
+    return task;
+  }
+
+  private String updateBuildRequest() throws Exception {
+    TaskUpdateRequest taskUpdateRequest = new TaskUpdateRequest();
+    ObjectMapper objectMapper = new ObjectMapper();
+    taskUpdateRequest.setId(1L);
+    taskUpdateRequest.setName("Task Update Request.");
+    taskUpdateRequest.setDescription("Task Update Description.");
+    return objectMapper.writeValueAsString(taskUpdateRequest);
   }
 
   private String buildRequest() throws JsonProcessingException {

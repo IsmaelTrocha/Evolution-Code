@@ -15,7 +15,7 @@ The project uses Spring Boot for back-end development and Java as the main langu
 
 <details>
 <summary><b>Java</b></summary>
-  Programming language used for the creation of this .
+  Principal programming language used.
 </details>
 
 <details>

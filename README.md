@@ -31,3 +31,8 @@ The project structure follows the hexagonal architecture, dividing responsibilit
 - Application: Implements use cases and orchestrates the business logic.
 - Adapters: Contains adapters for the user interface, databases and other external services.
 - Infrastructure: It contains concrete implementations and technical details, such as data persistence and external services.
+
+## Layers Coverage -> 100%
+
+![image](https://github.com/IsmaelTrocha/Evolution-Code/assets/114845174/40cf5bc1-fe9d-4504-b576-2acb9d08b7ba)
+

@@ -1,9 +1,7 @@
 package com.evolutioncode.technicaltest.infrastructure.adapter.task;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 
-import com.evolutioncode.technicaltest.domain.services.TaskDeleteService;
 import com.evolutioncode.technicaltest.infrastructure.repository.task.TaskRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

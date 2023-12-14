@@ -1,7 +1,6 @@
 package com.evolutioncode.technicaltest.shared.exception.base;
 
 import com.evolutioncode.technicaltest.shared.exception.code.ExceptionCode;
-import com.evolutioncode.technicaltest.shared.exception.code.MessageCode;
 import java.io.Serial;
 import java.time.LocalDateTime;
 import java.time.ZoneId;

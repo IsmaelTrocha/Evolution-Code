@@ -6,28 +6,28 @@ Welcome this section is documentation of the API developed with Spring and Java 
 
 The project uses Spring Boot for back-end development and Java as the main language. Hexagonal architecture, also known as port and adapter architecture, has been followed to facilitate separation of concerns and promote clean and maintainable code.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 <details>
 <summary><b>Spring Boot</b></summary>
-  Framework de aplicación de Java para crear servicios web.
+  Java application framework to create web services.
 </details>
 
 <details>
 <summary><b>Java</b></summary>
-  Lenguaje de programación principal.
+  Programming language used for the creation of this .
 </details>
 
 <details>
 <summary><b>JUnit y Mockito</b></summary>
-  Utilizados para realizar pruebas unitarias y seguir la metodología TDD.
+  Used to perform unit tests and follow TDD methodology.
 </details>
 
 ## Project Structure
 
 The project structure follows the hexagonal architecture, dividing responsibilities into layers:
 
-- **Domain:** Contains the business logic and domain entities.
-- Application: **Implements use cases and orchestrates the business logic.
-- Adapters:** Contains adapters for the user interface, databases and other external services.
-
+- Domain: Contains the business logic and domain entities.
+- Application: Implements use cases and orchestrates the business logic.
+- Adapters: Contains adapters for the user interface, databases and other external services.
+- Infrastructure: It contains concrete implementations and technical details, such as data persistence and external services.

@@ -23,7 +23,7 @@ public class GetTaskAdapter implements GetTaskService {
     return taskDtoMapper.toEntity(taskRepository.findById(id)
         .orElseThrow(() -> new TaskNotFoundException(
             messageUtils.getMessage(
-                ExceptionCode.TASK_NOT_FOUND.getCode(), id.toString()
+                ExceptionCode.TASK_NOT_FOUND.getType(), id.toString()
             ))));
   }
 }

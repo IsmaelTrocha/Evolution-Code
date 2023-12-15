@@ -11,7 +11,11 @@ import org.springframework.stereotype.Repository;
 public interface TaskRepository extends JpaRepository<TaskDto, Long> {
 
   @Modifying
-  @Query("UPDATE TaskDto t SET t.description = :newDescription, t.name = :newName, t.updatedDate= :newUpdateDate WHERE t.id = :id")
+  @Query("UPDATE TaskDto "
+      + "t SET t.description = :newDescription,"
+      + "t.name = :newName,"
+      + "t.updatedDate= :newUpdateDate"
+      + " WHERE t.id = :id")
   void updateTaskDto(
       @Param("newDescription") String newDescription,
       @Param("newName") String newName,

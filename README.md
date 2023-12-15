@@ -11,9 +11,7 @@ The project uses Spring Boot for back-end development and Java as the main langu
 <details>
 <summary><b>Spring Boot</b></summary>
   Java application framework to create web services.
-  <summary>
-    Dependencies
-  </summary>
+  
 </details>
 
 <details>

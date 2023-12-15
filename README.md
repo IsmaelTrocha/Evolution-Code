@@ -11,16 +11,18 @@ The project uses Spring Boot for back-end development and Java as the main langu
 <details>
 <summary><b>Spring Boot</b></summary>
 
-Spring Boot is a framework for building Java-based enterprise applications. It simplifies the process of building production-ready applications and provides a convention-over-configuration approach.
+-  Spring Boot is a framework for building Java-based enterprise applications. It simplifies the process of building production-ready applications and provides a convention-over-configuration approach.
 
 <details>
 
 
 <blockquote>
   <summary><b>Dependencies</b></summary>
-  - **Spring Boot Starter Web:** Used for building web applications, including RESTful applications using Spring MVC.
-  - **Spring Boot Starter Data JPA:** Provides support for the Java Persistence API (JPA) for data access.
-  - **Spring Boot Starter Test:** Includes testing libraries like JUnit and Mockito for unit testing.
+  - Spring Web
+  - Spring Data JPA
+  - Spring Starter Test
+  - H2 Database (To storage all data in memory)
+  - Lombok
 
 </blockquote>
 
@@ -43,11 +45,14 @@ The project structure follows the hexagonal architecture, dividing responsibilit
 - Adapters: Contains adapters for the user interface, databases and other external services.
 - Infrastructure: It contains concrete implementations and technical details, such as data persistence and external services.
 
-## Layers Coverage -> 100%
-
-![image](https://github.com/IsmaelTrocha/Evolution-Code/assets/114845174/40cf5bc1-fe9d-4504-b576-2acb9d08b7ba)
 
 ## How to run the project?
 
-- First of all you didn't need install any Database, or Image, container or stuff like that because all the data is storage in memory.
+- First of all you didn't need install any Database Management, or Image, container or stuff like that because all the data is storage in memory.
+- Create a new Directory and inside open the terminal and paste this command --> ( git clone https://github.com/IsmaelTrocha/Evolution-Code.git )
+- Then that we download the repository, open your favorite IDE and navigate to the project we downloaded.
+- Doing all these steps the last stage is execute the program, so feel fre to do it.
 
+## Layers Coverage -> 100%
+
+![image](https://github.com/IsmaelTrocha/Evolution-Code/assets/114845174/40cf5bc1-fe9d-4504-b576-2acb9d08b7ba)

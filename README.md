@@ -10,15 +10,27 @@ The project uses Spring Boot for back-end development and Java as the main langu
 
 <details>
 <summary><b>Spring Boot</b></summary>
-  Java application framework to create web services.
-  
-</details>
+
+Spring Boot is a framework for building Java-based enterprise applications. It simplifies the process of building production-ready applications and provides a convention-over-configuration approach.
 
 <details>
-<summary><b>Java</b></summary>
-  Principal programming language used.
+
+
+<blockquote>
+  <summary><b>Dependencies</b></summary>
+  - Spring Web 
+  - Spring Data JPA 
+  - Spring Starter Test 
+  - H2 Database (To storage all data in memory)
+  - Lombok
+  
+</blockquote>
+
 </details>
 
+</details>
+
+</details>
 <details>
 <summary><b>JUnit y Mockito</b></summary>
   Used to perform unit tests and follow TDD methodology.
@@ -36,4 +48,8 @@ The project structure follows the hexagonal architecture, dividing responsibilit
 ## Layers Coverage -> 100%
 
 ![image](https://github.com/IsmaelTrocha/Evolution-Code/assets/114845174/40cf5bc1-fe9d-4504-b576-2acb9d08b7ba)
+
+## How to run the project?
+
+- First of all you didn't need install any Database, or Image, container or stuff like that because all the data is storage in memory.
 

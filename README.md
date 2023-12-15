@@ -30,7 +30,7 @@ The project uses Spring Boot for back-end development and Java as the main langu
 </details>
 <details>
 <summary><b>JUnit y Mockito</b></summary>
-  Used to perform unit tests and follow TDD methodology.
+  - Used to perform unit tests and follow TDD methodology.
 </details>
 
 

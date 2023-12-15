@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import com.evolutioncode.technicaltest.application.task.CreateTaskApplication;
 import com.evolutioncode.technicaltest.application.task.GetTaskApplication;
 import com.evolutioncode.technicaltest.application.task.TaskDeleteApplication;
+import com.evolutioncode.technicaltest.application.task.TaskMarkCompletedApplication;
 import com.evolutioncode.technicaltest.application.task.UpdateTaskApplication;
 import com.evolutioncode.technicaltest.domain.entity.Task;
 import com.evolutioncode.technicaltest.infrastructure.api.dto.request.TaskRequest;
@@ -51,6 +52,8 @@ public class TaskControllerTest {
   @Mock
   private TaskDeleteApplication taskDeleteApplication;
   @Mock
+  private TaskMarkCompletedApplication taskMarkCompletedApplication;
+  @Mock
   private MessageUtils messageUtils;
 
   @InjectMocks
@@ -60,7 +63,7 @@ public class TaskControllerTest {
   void setUp() {
     taskController = new TaskController(createTaskApplication, getTaskApplication,
         updateTaskApplication, taskRequestMapper, taskResponseMapper, taskUpdateRequestMapper,
-        taskDeleteApplication, messageUtils);
+        taskDeleteApplication, messageUtils, taskMarkCompletedApplication);
     mockMvc = MockMvcBuilders.standaloneSetup(taskController).build();
   }
 

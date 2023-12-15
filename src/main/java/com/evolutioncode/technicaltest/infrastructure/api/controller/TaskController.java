@@ -3,6 +3,7 @@ package com.evolutioncode.technicaltest.infrastructure.api.controller;
 import com.evolutioncode.technicaltest.application.task.CreateTaskApplication;
 import com.evolutioncode.technicaltest.application.task.GetTaskApplication;
 import com.evolutioncode.technicaltest.application.task.TaskDeleteApplication;
+import com.evolutioncode.technicaltest.application.task.TaskMarkCompletedApplication;
 import com.evolutioncode.technicaltest.application.task.UpdateTaskApplication;
 import com.evolutioncode.technicaltest.infrastructure.api.dto.request.TaskRequest;
 import com.evolutioncode.technicaltest.infrastructure.api.dto.request.TaskUpdateRequest;
@@ -16,6 +17,7 @@ import com.evolutioncode.technicaltest.shared.utils.MessageUtils;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,12 +41,13 @@ public class TaskController {
   private final TaskUpdateRequestMapper taskUpdateRequestMapper;
   private final TaskDeleteApplication taskDeleteApplication;
   private final MessageUtils messageUtils;
+  private final TaskMarkCompletedApplication taskMarkCompletedApplication;
 
   @PostMapping
   public ResponseEntity<EntityResponse> createTask(@RequestBody TaskRequest taskRequest) {
     createTaskApplication.createTask(taskRequestMapper.toEntity(taskRequest));
     return new ResponseEntity<>(new EntityResponse(
-        "200", messageUtils.getMessage(ExceptionCode.TASK_SAVED_SUCCESSFULLY.getType()),
+        "201", messageUtils.getMessage(ExceptionCode.TASK_SAVED_SUCCESSFULLY.getType()),
         LocalDateTime.now()), HttpStatus.CREATED);
   }
 
@@ -56,7 +59,7 @@ public class TaskController {
         LocalDateTime.now()), HttpStatus.OK);
   }
 
-  @GetMapping(value = "/retrieve/{id}")
+  @GetMapping(value = "/retrieve/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<TaskResponse> getTaskById(@PathVariable("id") Long id) {
     return new ResponseEntity<>(taskResponseMapper.toDto(getTaskApplication.findTaskById(id)),
         HttpStatus.OK);
@@ -69,5 +72,13 @@ public class TaskController {
         "200", messageUtils.getMessage(ExceptionCode.TASK_DELETED_SUCCESS.getType()),
         LocalDateTime.now()),
         HttpStatus.OK);
+  }
+
+  @PutMapping(path = "/{id}/complete")
+  public ResponseEntity<EntityResponse> markTaskAsCompleted(@PathVariable("id") Long id) {
+    taskMarkCompletedApplication.markTaskAsComplete(id);
+    return new ResponseEntity<>(new EntityResponse("201",
+        messageUtils.getMessage(ExceptionCode.TASK_COMPLETED_SUCCESSFULLY.getType()),
+        LocalDateTime.now()), HttpStatus.OK);
   }
 }

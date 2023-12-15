@@ -1,5 +1,6 @@
 package com.evolutioncode.technicaltest.application.task;
 
+import com.evolutioncode.technicaltest.domain.entity.Task;
 import com.evolutioncode.technicaltest.domain.services.TaskDeleteService;
 import lombok.AllArgsConstructor;
 

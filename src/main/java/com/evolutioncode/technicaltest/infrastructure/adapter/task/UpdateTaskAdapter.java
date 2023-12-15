@@ -17,7 +17,9 @@ public class UpdateTaskAdapter implements UpdateTaskService {
   @Override
   @Transactional
   public void updateTask(Task task) {
-    taskRepository.updateTaskDto(task.getDescription(), task.getName(), LocalDateTime.now(),
+    taskRepository.updateTaskDto(task.getDescription(),
+        task.getName(),
+        LocalDateTime.now(),
         task.getId());
   }
 }

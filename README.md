@@ -36,6 +36,15 @@ The project uses Spring Boot for back-end development and Java as the main langu
   Used to perform unit tests and follow TDD methodology.
 </details>
 
+
+## How to run the project?
+
+- First of all you didn't need install any Database Management, or Image, container or stuff like that because all the data is storage in memory.
+- Create a new Directory and inside open the terminal and paste this command --> ( git clone https://github.com/IsmaelTrocha/Evolution-Code.git )
+- After we download the repository, next step is open your favorite IDE and you have to navigate to the path where the project we just downloaded is hosted.
+- Doing all these steps the last stage is execute the program, so feel fre to do it.
+
+
 ## Project Structure
 
 The project structure follows the hexagonal architecture, dividing responsibilities into layers:
@@ -44,14 +53,6 @@ The project structure follows the hexagonal architecture, dividing responsibilit
 - Application: Implements use cases and orchestrates the business logic.
 - Adapters: Contains adapters for the user interface, databases and other external services.
 - Infrastructure: It contains concrete implementations and technical details, such as data persistence and external services.
-
-
-## How to run the project?
-
-- First of all you didn't need install any Database Management, or Image, container or stuff like that because all the data is storage in memory.
-- Create a new Directory and inside open the terminal and paste this command --> ( git clone https://github.com/IsmaelTrocha/Evolution-Code.git )
-- Then that we download the repository, open your favorite IDE and navigate to the project we downloaded.
-- Doing all these steps the last stage is execute the program, so feel fre to do it.
 
 ## Layers Coverage -> 100%
 

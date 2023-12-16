@@ -36,7 +36,7 @@ The project uses Spring Boot for back-end development and Java as the main langu
 
 ## How to run the project?
 
-- First of all you didn't need install any Database Management, or Image, container or stuff like that because all the data is storage in memory.
+- First of all you don't need install any Database Management, or Image, container or stuff like that because all the data is storage in memory.
 - Create a new Directory and inside open the terminal and paste this command --> ( git clone https://github.com/IsmaelTrocha/Evolution-Code.git )
 - After we download the repository, next step is open your favorite IDE and you have to navigate to the path where the project we just downloaded is hosted.
 - Doing all these steps the last stage is execute the program, so feel fre to do it.

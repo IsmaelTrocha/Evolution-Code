@@ -1,4 +1,4 @@
-# Project Name
+# Spring - Evolution Practical Test
 
 Welcome this section is documentation of the API developed with Spring and Java back-end technologies. This API follows the hexagonal architecture and has been developed following Test Driven Development (TDD) practices, making use of patterns such as DTO (Data Transfer Object) and employing the Builder design pattern.
 
